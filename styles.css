@@ -387,3 +387,34 @@ figcaption {
     line-height: 1;                  /* prevent extra line‑height space */
   }
 }
+/* === Slimmer *mobile* nav bar (≤ 768 px) === */
+@media (max-width: 768px) {
+  /* tighten the white band around the hamburger */
+  .header {
+    padding: 0.5rem 0;          /* was 2 rem / 2.5 rem */
+  }
+
+  .navbar {
+    padding: 0.5rem 5%;         /* was 1 rem 5% */
+    align-items: center;        /* keeps hamburger/logo centered */
+  }
+
+  /* shrink the dropdown menu */
+  .nav-links,
+  .nav-links.show {             /* same values whether hidden or shown */
+    gap: 0.75rem;               /* was 1 rem */
+    padding: 0.5rem 0;          /* was 1 rem 0 */
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;          /* was default body size */
+    padding: 0.25rem 0;         /* remove extra vertical space */
+    line-height: 1;             /* avoid extra line‑height */
+  }
+
+  /* (optional) slightly smaller hamburger icon */
+  .hamburger {
+    font-size: 1.5rem;          /* was 2 rem */
+  }
+}
+
