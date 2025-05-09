@@ -177,16 +177,21 @@
       window.addEventListener('scroll', setActiveLink);
   });
     </script>
-    <script>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', function () {
-      navLinks.classList.toggle('show');
-    });
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+      });
+    } else {
+      console.error("Hamburger or nav-links element not found.");
+    }
   });
 </script>
+
 
     
 </body>
