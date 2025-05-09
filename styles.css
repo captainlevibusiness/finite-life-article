@@ -387,5 +387,27 @@ figcaption {
     line-height: 1;                  /* prevent extra line‑height space */
   }
 }
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;                   /* places it *below* the navbar */
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    gap: 1rem;
+    padding: 1rem 0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+}
+
 
 
