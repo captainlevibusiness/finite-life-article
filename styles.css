@@ -418,25 +418,4 @@ figcaption {
   }
 }
 
-@media (max-width: 768px) {
-  .header {
-    padding: 0.5rem 0;        /* Reduce top & bottom white space */
-  }
 
-  .navbar {
-    padding: 0.5rem 5%;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 1.2rem;        /* Smaller logo text */
-    line-height: 1;           /* Avoid extra vertical space */
-  }
-
-  .hamburger {
-    font-size: 1.4rem;        /* Smaller menu icon */
-  }
-}
-.header {
-  padding: 0.25rem 0 !important;
-}
