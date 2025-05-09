@@ -20,7 +20,7 @@ body {
     line-height: 1.8;
     color: var(--dark);
     background-color: var(--light);
-    padding: 0;
+    border: 1px solid red;
 }
 
 /* Modern Header */
@@ -30,6 +30,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100%;
+    overflow-y: hidden;
 }
 
 .navbar {
@@ -64,6 +66,40 @@ body {
 .nav-links a:hover {
     color: var(--primary);
 }
+
+
+/* For phones only  Add these mobile styles to your existing CSS */
+@media (max-width: 768px) {
+    .nav-links {
+    gap: 1rem;
+    }
+    
+    .nav-links a {
+        display: inline-block;
+        overflow: hidden;
+        max-width: 50px;
+        transition: max-width 0.3s ease;
+        color:#21252900;
+    }
+    
+    .nav-links a::before {
+        content: "—";
+        display: inline-block;
+        margin-right: 5px;
+        color: #212529;
+    }
+    
+    .nav-links a.active,
+    .nav-links a:hover {
+        max-width: 200px;
+    }
+    
+    .nav-links a span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+    
 
 /* Article Container */
 article {
@@ -211,6 +247,7 @@ figcaption {
 #references ol {
     padding-left: 0;
     list-style: none;
+    overflow-wrap:break-word;
     counter-reset: ref-counter;
 }
 
