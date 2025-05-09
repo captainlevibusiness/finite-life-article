@@ -362,3 +362,28 @@ figcaption {
         font-size: 2rem;
     }
 }
+/* --- Slimmer desktop nav --- */
+@media (min-width: 769px) {          /* keep mobile menu unchanged */
+  .header {
+    padding: 0.75rem 0;              /* was 2 rem 0 & 2.5 rem bottom */
+  }
+
+  .navbar {
+    padding: 0.5rem 5%;              /* was 1 rem 5% */
+    align-items: center;             /* center items vertically */
+  }
+
+  .logo { 
+    font-size: 1.3rem;               /* slightly smaller logo text */
+  }
+
+  .nav-links { 
+    gap: 1.5rem;                     /* a bit tighter spacing */
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;               /* smaller link text */
+    padding: 0.25rem 0;              /* remove extra vertical padding */
+    line-height: 1;                  /* prevent extra line‑height space */
+  }
+}
