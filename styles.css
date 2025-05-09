@@ -417,5 +417,21 @@ figcaption {
     font-size: 1.5rem;          /* was 2 rem */
   }
 }
+@media (max-width: 768px) {
+  .nav-links a {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    line-height: 1.4;
+    opacity: 1;
+    transform: none;
+    animation: none;
+    text-align: center;
+  }
+
+  .nav-links {
+    padding: 0.75rem 0;
+    gap: 0.75rem;
+  }
+}
 
 
