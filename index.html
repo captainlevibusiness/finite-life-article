@@ -8,37 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-      <nav class="navbar">
-        <div class="logo">Finite Life</div>
-        <ul class="nav-links">
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#meaningless">Mortality</a></li>
-            <li><a href="#afterlife">Afterlife</a></li>
-            <li><a href="#fantasies">Fantasies</a></li>
-            <li><a href="#references">References</a></li>
-        </ul>
-      </nav>
-      
-    </header>
+  
 
     <article>
-        <header>
-            <h1>Finite Life, Infinite Desires: How Perspective Shapes Beliefs About Mortality, the Afterlife, and the Pursuit of a Better Existence</h1>
-            <p class="byline">Levi Atang | May 8, 2025</p>
-            <nav class="toc">
-                <h2>Contents</h2>
-                <ul>
-                    <li><a href="#introduction">Introduction</a></li>
-                    <li><a href="#meaningless">Would Life Be Meaningless if It Did Not Come to an End?</a></li>
-                    <li><a href="#afterlife">Is There Life After Death?</a></li>
-                    <li><a href="#fantasies">Do We All Fantasize About a Better Life?</a></li>
-                    <li><a href="#interconnections">Interconnections & Implications</a></li>
-                    <li><a href="#conclusion">Conclusion</a></li>
-                    <li><a href="#references">References</a></li>
-                </ul>
-            </nav>
-        </header>
+      <header class="header">
+        <nav class="navbar">
+            <div class="logo">Finite Life</div>
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#meaningless">Mortality</a></li>
+                <li><a href="#afterlife">Afterlife</a></li>
+                <li><a href="#fantasies">Fantasies</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </nav>
+    </header>
+      
 
         <section id="introduction">
             <h2>Introduction</h2>
@@ -140,40 +126,48 @@
         <p>&copy; 2025 Finite Life Research. All rights reserved.</p>
     </footer>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.nav-links a');
-        const isMobile = window.innerWidth <= 768;
-        
-        // Set active link based on current section
-        function setActiveLink() {
-            const scrollPosition = window.scrollY + 100;
-            
-            navLinks.forEach(link => {
-                const section = document.querySelector(link.getAttribute('href'));
-                if (section) {
-                    const sectionTop = section.offsetTop;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                }
-            });
-        }
-        
-        // Initialize and add event listeners
-        if (isMobile) {
-            setActiveLink();
-            window.addEventListener('scroll', setActiveLink);
-            
-            navLinks.forEach(link => {
-                link.innerHTML = <span>${link.textContent}</span>;
-            });
-        }
-    });
+
+    <script>document.addEventListener('DOMContentLoaded', function () {
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const hamburger = document.getElementById('hamburger');
+      const navLinksContainer = document.getElementById('nav-links');
+  
+      // Toggle mobile menu
+      hamburger.addEventListener('click', () => {
+          navLinksContainer.classList.toggle('show');
+      });
+  
+      // Close menu when a link is clicked (for mobile)
+      navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+              if (window.innerWidth <= 768) {
+                  navLinksContainer.classList.remove('show');
+              }
+          });
+      });
+  
+      // Highlight active link on scroll
+      function setActiveLink() {
+          const scrollPosition = window.scrollY + 100;
+  
+          navLinks.forEach(link => {
+              const section = document.querySelector(link.getAttribute('href'));
+              if (section) {
+                  const sectionTop = section.offsetTop;
+                  const sectionBottom = sectionTop + section.offsetHeight;
+  
+                  if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                      link.classList.add('active');
+                  } else {
+                      link.classList.remove('active');
+                  }
+              }
+          });
+      }
+  
+      setActiveLink();
+      window.addEventListener('scroll', setActiveLink);
+  });
     </script>
     
 </body>

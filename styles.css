@@ -20,7 +20,6 @@ body {
     line-height: 1.8;
     color: var(--dark);
     background-color: var(--light);
-    border: 1px solid red;
 }
 
 /* Modern Header */
@@ -29,6 +28,8 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
+    padding:  2rem 0;
+    padding-bottom: 2.5rem;
     z-index: 100;
     width: 100%;
     overflow-y: hidden;
@@ -37,7 +38,7 @@ body {
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
@@ -67,40 +68,85 @@ body {
     color: var(--primary);
 }
 
+.nav-links a.active {
+    color: var(--primary);
+    font-weight: 700;
+}
 
-/* For phones only  Add these mobile styles to your existing CSS */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    color: var(--secondary);
+    z-index: 1001;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+
     .nav-links {
-    gap: 1rem;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        gap: 1rem;
+        padding: 1rem 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     }
-    
+
+    .nav-links.show {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding:  1rem 3%;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10%);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     .nav-links a {
-        display: inline-block;
-        overflow: hidden;
-        max-width: 50px;
-        transition: max-width 0.3s ease;
-        color:#21252900;
+        opacity: 0;
+        transform: translateY(10px);
     }
-    
-    .nav-links a::before {
-        content: "—";
-        display: inline-block;
-        margin-right: 5px;
-        color: #212529;
+
+    .nav-links.show a {
+        opacity: 1;
+        transform: translateY(0);
+        animation: fadeInLink 0.3s ease forwards;
     }
-    
-    .nav-links a.active,
-    .nav-links a:hover {
-        max-width: 200px;
-    }
-    
-    .nav-links a span {
-        display: inline-block;
-        vertical-align: middle;
+
+    @keyframes fadeInLink {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }
-    
 
+  
 /* Article Container */
 article {
     max-width: 900px;
@@ -288,6 +334,19 @@ figcaption {
         flex-direction: column;
         gap: 1rem;
         padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        display: none;
+        gap: 1rem;
+        padding: 1rem 0;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+    .nav-links.show {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
     }
     
     .toc ul {
